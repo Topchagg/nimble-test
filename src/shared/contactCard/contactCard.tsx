@@ -1,16 +1,26 @@
 import { useEffect, useState,FC } from 'react'
 
+import useFetchData from '../customHooks/getCustomHooks'
+
 import InfoCard from '../infoCard/infoCard'
 import contactCardType from '../types/contactCardType'
 
 import './ui/styles.css'
+import deleteContact from '../functions/deleteContact'
 
 const ContactCard:FC<contactCardType> = (props) => {
+
+    const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'; 
 
     const [isHover, setIsHover] = useState<boolean>(false)
     const [isHugeTagList,setIsHugeTagList] = useState(false)
     const [styles,setStyles] = useState<string>('')
     const [workTagList,setWorkTagList] = useState(props.tags)
+
+
+    const onDelete = () => {
+        deleteContact(props.id,token)
+    }
 
 
     useEffect(() => {
@@ -43,7 +53,7 @@ const ContactCard:FC<contactCardType> = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="del-contact-btn xl-text">
+            <div className="del-contact-btn xl-text" onClick={onDelete}>
                 Delete this contact
             </div>
         </div>

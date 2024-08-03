@@ -1,0 +1,43 @@
+.contact-page-data-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-page-image-wrapper {
+    width: 400px;
+    box-shadow: 0px 0px 20px 2px black;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.contact-page-info-item {
+    padding: 20px;
+    border: solid black 1px;
+    padding-left: 30px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px 2px black;
+}
+
+.contact-page-tag-actions-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag-list-wrapper {
+    width: 400px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px 2px black;
+    border: none;
+    padding: 10px;
+    padding-left: 30px;
+    overflow-wrap: break-word;
+}
+
+.create-tag-form-wrapper {
+    width: 30%;
+}
+
+.contact-page-tags-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}

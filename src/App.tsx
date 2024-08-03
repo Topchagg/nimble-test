@@ -1,37 +1,28 @@
-interface tag {
-  id:string,
-  tag:string,
-}
-
-interface el {
-    value:string
-}
+import ContactPage from "./pages/contactPage/contactPage";
+import useFetchData from "./shared/customHooks/getCustomHooks";
+import CreateContactWidget from "./widgets/createContactWidget/createContactWidget";
+import LandSection from "./sections/landSection";
 
 function App() {
 
 
-  // const url = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contacts';
+  // const url = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/66aa7dce662ccba0abc4e2b2';
   // const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
 
-  {/* {canShow && data['resources'] && data['resources'].map((item:item, index: number) => (
-          <div className='center' key={index}>
-              <ContactCard
-              image={item.avatar_url}
-              firstName={item.fields?.['first name']?.[0]?.value}
-              lastName={item.fields?.['last name']?.[0]?.value}
-              email={item.fields?.['email']?.[0]?.value}
-              tags={item?.tags}
+  const url = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contacts?created=desk';
+  const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'; 
 
-              />
-          </div>
-      ))} */}
-
+  // const {data,isLoaded,error} = useFetchData(url,token)
 
   return (
+
     <>
-     
+      {/* <CreateContactWidget/> */}
+      {/* <ContactPage/> */}
+      {/* <button onClick={() => console.log(data)}>smt</button> */}
+      <LandSection/>
     </>
   );
 }
 
-export default App;
+export default App; 

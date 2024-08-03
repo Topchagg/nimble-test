@@ -10,6 +10,10 @@
     padding-top: 75px;
 }
 
+.ml-5 {
+    margin-left: 5px;
+}
+
 .mt-5 {
     margin-top: 5px;
 }
@@ -20,6 +24,10 @@
 
 .mt-50:first {
     margin-top: 0;
+}
+
+.p-10 {
+    padding: 10px;
 }
 
 .s-text {
@@ -49,7 +57,6 @@
     padding-left: 30px;
     transition: 400ms;
     outline: none;
-    height: 100%;
     width: 100%;
 }
 

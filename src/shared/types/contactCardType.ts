@@ -1,4 +1,4 @@
-interface tag {
+export interface tag {
     id:string,
     tag:string,
 }
@@ -8,7 +8,8 @@ interface contactCardType {
     lastName:string,
     tags:tag[],
     email:string,
-    image:string
+    image:string,
+    id:string
 }
 
 export default contactCardType

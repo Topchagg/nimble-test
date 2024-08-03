@@ -27,6 +27,8 @@
     height: 100%;
     width: 200px;
     border-right: 2px black solid;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 
 .info-contact-wrapper {
@@ -39,7 +41,7 @@
 }
 
 .del-contact-btn {
-    width: 70%;
+    width: 80%;
     background-color: black;
     color: aliceblue;
     height: 40px;
