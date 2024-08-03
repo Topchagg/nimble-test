@@ -2,6 +2,7 @@ import ContactPage from "./pages/contactPage/contactPage";
 import useFetchData from "./shared/customHooks/getCustomHooks";
 import CreateContactWidget from "./widgets/createContactWidget/createContactWidget";
 import LandSection from "./sections/landSection";
+import LoadingItem from "./shared/loadingItem/loadingitem";
 
 function App() {
 

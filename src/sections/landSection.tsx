@@ -1,5 +1,6 @@
 import ContactCard from "../shared/contactCard/contactCard";
 import useFetchData from "../shared/customHooks/getCustomHooks";
+import LoadingItem from "../shared/loadingItem/loadingitem";
 import itemCard from "../shared/types/itemCardType";
 import CreateContactWidget from "../widgets/createContactWidget/createContactWidget";
 
@@ -33,6 +34,10 @@ const LandSection = () => {
                     ))}
                 </div>
             </div>
+        )
+    }else {
+        return (
+            <LoadingItem/>
         )
     }
 }

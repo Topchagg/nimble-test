@@ -4,6 +4,7 @@ import isEmail from "validator/lib/isEmail"
 import usePostRequest from "../../shared/customHooks/postCustomHook";
 import { v4 } from "uuid";
 import { useEffect } from "react";
+import LoadingItem from "../../shared/loadingItem/loadingitem";
 
 const FormCreateContact = () => {
 
@@ -58,6 +59,7 @@ const FormCreateContact = () => {
     return (
         <>
             <ReactiveForm setObject={form} setFunc={setForm}>
+                {loading && <LoadingItem/>}
                 <div>
                     {!form['firstName'].isValid && <>Valid only alphabets!</>}
                     <InputField name="firstName" allowNull max={20} validFunc={isAlpha} {...settings} placeholder="Name"/>

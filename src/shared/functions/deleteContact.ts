@@ -1,4 +1,6 @@
-async function deleteContact(contactId:string,token:string) {
+import { Dispatch, SetStateAction } from "react";
+
+async function deleteContact(contactId:string,token:string,setFunc:Dispatch<SetStateAction<boolean>>) {
     const baseUrl = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact';
     const url = `${baseUrl}/${contactId}`; 
   
@@ -17,7 +19,10 @@ async function deleteContact(contactId:string,token:string) {
   
       const data = await response.json(); 
       console.log('Contact deleted successfully:', data);
-      alert(`Contact deleted successfully: ${JSON.stringify(data)}`)
+      if(data.status === "ok"){
+        setFunc(true)
+      }
+
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
       alert('Something went wrong')
