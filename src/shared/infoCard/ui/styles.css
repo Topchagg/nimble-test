@@ -1,0 +1,8 @@
+.info-card {
+    display: flex;
+    text-align: center;
+}
+
+.value-wrapper {
+    padding-left: 5px;
+}

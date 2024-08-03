@@ -1,0 +1,62 @@
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pt-75 {
+    padding-top: 75px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-50:first {
+    margin-top: 0;
+}
+
+.s-text {
+    font-size: 18px;
+}
+
+.l-text {
+    font-size: 22px;
+}
+
+.xl-text {
+    font-size: 26px;
+}
+
+.s-title {
+    font-size: 36px;
+}
+
+.l-title {
+    font-size: 42px;
+}
+
+.default {
+    margin-top: 10px;
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 30px;
+    transition: 400ms;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+.valid {
+    border: solid 4px #728BAD;
+}
+
+.invalid {
+    border: solid 4px brown;    
+}

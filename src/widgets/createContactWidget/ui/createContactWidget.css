@@ -1,0 +1,41 @@
+.default-hide-btn {
+    border: solid black 1px;
+    background-color: darkgray;
+    color: aliceblue;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    cursor: pointer;
+    width: 350px;
+    text-align: center;
+    transition: 400ms;
+    z-index: 2;
+    border: solid black 1px;
+    margin: 0 auto;
+}
+
+.to-unhide-btn {
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    top: 1%;
+    transform: translate(-50%, -50%);  
+
+}
+
+.default-hide-btn:hover {
+    box-shadow: black 0px 0px 20px 2px;
+}
+
+
+
+.create-contact-wrapper {
+    width: 530px;
+    margin: 0 auto;
+    padding: 30px;
+    border: solid black 3px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: black;
+    color: aliceblue;
+    opacity: 0.9;
+}
