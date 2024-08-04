@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 
 import { InputField, ReactiveForm, useCreateForm,fieldSettings, setGlobalObject, useActionOnSubmit, formIsValid, ImageField, SelectField } from "reactive-fast-form"
 import isAlpha from "validator/lib/isAlpha"
@@ -12,7 +12,7 @@ import {downloadImgTo } from "../../lib/firebase/firbaseScripts";
 
 import './ui/formCreateContact.css'
 
-const FormCreateContact = () => {
+const FormCreateContact:FC<{setFunc?:Dispatch<SetStateAction<any>>,data?:any}> = (props) => {
 
     const url = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact';
     const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
@@ -31,8 +31,12 @@ const FormCreateContact = () => {
 
     useActionOnSubmit(async () => {
         if(formIsValid(form, {'firstName':'lastName'})){
-            const img = await downloadImgTo(form['image'].value,'/image')
-            setImageUrl(img)
+            let img = null
+            if(form['image'].value){
+                img = await downloadImgTo(form['image'].value,'/image')
+                setImageUrl(img) 
+            } 
+            
 
             let name = form['firstName'].value
             let lastName = form['lastName'].value
@@ -69,6 +73,12 @@ const FormCreateContact = () => {
                 }     
                 setPreview('')
                 postRequest(data)
+
+                if(true){
+                    const localData = props.data
+                    localData.unshift(data)
+                    props.setFunc([...localData])
+                }
         }else {
             alert('1. Name or Lastname have to be filled, 2. Email is required field and have to be valid email value')
         }

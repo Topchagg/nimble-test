@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { Dispatch, FC, SetStateAction, useState } from "react"
 
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -7,7 +7,7 @@ import FormCreateContact from "../../features/formCreateContact/formCreateContac
 
 import './ui/createContactWidget.css'
 
-const CreateContactWidget = () => {
+const CreateContactWidget:FC<{setFunc?:Dispatch<SetStateAction<any>>, data?:any}> = (props) => {
 
     const [isHide, setIsHide] = useState(true)
 
@@ -28,7 +28,7 @@ const CreateContactWidget = () => {
                     transition={{duration:0.4}}
                     >
                         <div className="create-contact-wrapper">
-                            <FormCreateContact/>
+                            <FormCreateContact  setFunc={props.setFunc} data={props.data}/>
                         </div>
                         <div className="default-hide-btn xl-text" onClick={() => setIsHide(!isHide)}>
                             Hide
