@@ -32,7 +32,11 @@
 }
 
 .info-contact-wrapper {
-    margin-left: 5px;
+    width: 80%;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 25px;
+    overflow: hidden;
 }
 
 .tags-wrapper {

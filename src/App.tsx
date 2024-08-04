@@ -4,6 +4,8 @@ import CreateContactWidget from "./widgets/createContactWidget/createContactWidg
 import LandSection from "./sections/landSection";
 import LoadingItem from "./shared/loadingItem/loadingitem";
 
+import { Route,Routes } from "react-router-dom";
+
 function App() {
 
 
@@ -21,7 +23,11 @@ function App() {
       {/* <CreateContactWidget/> */}
       {/* <ContactPage/> */}
       {/* <button onClick={() => console.log(data)}>smt</button> */}
-      <LandSection/>
+      {/* <LandSection/> */}
+      <Routes>
+        <Route index element={<LandSection/>}/>
+        <Route path="contact/:id" element={<ContactPage/>}/>
+      </Routes>
     </>
   );
 }

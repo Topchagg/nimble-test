@@ -39,5 +39,5 @@
 
 .contact-page-tags-grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ContactCard from "../shared/contactCard/contactCard";
 import useFetchData from "../shared/customHooks/getCustomHooks";
 import LoadingItem from "../shared/loadingItem/loadingitem";
@@ -9,20 +11,26 @@ const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
 
 
 import './ui/landSection.css'
+import { useEffect } from "react";
 
 
 const LandSection = () => {
 
     const {data,isLoaded,error} = useFetchData(url,token)
 
-    if(isLoaded){
+    useEffect(() => {
+        console.log(data)
+    },[data])
+
+    if(isLoaded && data){
         return (
             <div className="content-wrapper">
                 <CreateContactWidget/>
-                <div className="contacts-grid">
+                <div className="contacts-grid" >
                     {data?.['resources'].map((item:itemCard,index:number) => (
                         <div key={index}>
                             <ContactCard 
+                            link={`/contact/${item.id}`}
                             id={item.id}
                             firstName={item?.['fields']?.['first name']?.[0]?.['value']}
                             lastName={item?.['fields']?.['last name']?.[0]?.['value']}

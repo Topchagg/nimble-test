@@ -9,7 +9,8 @@ interface contactCardType {
     tags:tag[],
     email:string,
     image:string,
-    id:string
+    id:string,
+    link:string
 }
 
 export default contactCardType

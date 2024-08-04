@@ -10,8 +10,7 @@ const LoadingItem = () => {
             <motion.div className='loading-item'
             animate={
                 {   rotate:360,
-                    scale: [1,1.5,1],
-                    borderRadius: [80,100,150]
+                    scale: [1,1.1,1],
                 }
                 
             }

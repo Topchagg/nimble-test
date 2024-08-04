@@ -1,5 +1,4 @@
 .loading-item-wrapper {
-    border: solid black 3px;
     z-index: 3;
     height: 100vh; 
     width: 100vw; 
@@ -14,9 +13,9 @@
 }
 
 .loading-item {
-    border: solid black 2px;
     width: 75px;
     height: 75px;
     border-radius: 50%; 
     border-top: solid darkgray 3px;
+    border-right: solid darkgray;
 }

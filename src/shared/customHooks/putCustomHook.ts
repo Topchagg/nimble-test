@@ -3,11 +3,11 @@ import { useState } from 'react';
 const usePutRequest = (url:string, token:string) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [error, setError] = useState<any>(null);
+  const [putError, setPutError] = useState<any>(null);
 
   const putRequest = async (requestData:any) => {
     setLoading(true);
-    setError(null);
+    setPutError(null);
 
     try {
       const response = await fetch(url, {
@@ -26,13 +26,13 @@ const usePutRequest = (url:string, token:string) => {
       const responseData = await response.json();
       setData(responseData);
     } catch (err) {
-      setError(err);
+      setPutError(err);
     } finally {
       setLoading(false);
     }
   };
 
-  return { loading, data, error, putRequest };
+  return { loading, data, putError, putRequest };
 };
 
 export default usePutRequest;

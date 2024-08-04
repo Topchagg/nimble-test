@@ -4,11 +4,12 @@ import { v4 } from "uuid"
 
 import { tag } from "../../shared/types/contactCardType"
 import { Dispatch, FC, SetStateAction, useState } from "react"
+import getStringTags from "../../shared/functions/getStingTags"
 
 
 interface formAddTag {
-    setFunc:Dispatch<SetStateAction<tag[]>>,
-    tags:tag[]
+    setFunc:Dispatch<SetStateAction<string[]>>,
+    tags:string[]
 }
 
 const FormAddTag:FC<formAddTag> = (props) => {
@@ -21,8 +22,7 @@ const FormAddTag:FC<formAddTag> = (props) => {
 
     useActionOnSubmit(() => {
         if(formIsValid(form) && props.tags.length <= 15){
-            const tagToSet = {tag:form['tag'].value, id:v4()}
-            props.setFunc([...props.tags, tagToSet])
+            props.setFunc([...props.tags,form['tag'].value])
         }else if (props.tags.length > 15){
             alert('Maximum of tags')
         }

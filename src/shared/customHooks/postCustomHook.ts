@@ -9,6 +9,8 @@ const usePostRequest = (url:string, token:string) => {
     setLoading(true);
     setError(null);
 
+    console.log(requestData)
+
     try {
       const response = await fetch(url, {
         method: 'POST',

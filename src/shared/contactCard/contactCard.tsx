@@ -1,7 +1,6 @@
 import { useEffect, useState,FC } from 'react'
 
-import useFetchData from '../customHooks/getCustomHooks'
-
+import { Link } from 'react-router-dom'
 import InfoCard from '../infoCard/infoCard'
 import contactCardType from '../types/contactCardType'
 
@@ -43,6 +42,7 @@ const ContactCard:FC<contactCardType> = (props) => {
         return (
             <div className='card' onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
                 {isLoading && <LoadingItem/>}
+                <Link to={props.link}>
                 <div className={styles}>
                     <div className="avatar-wrapper">
                         <img src={props.image} className='image' alt="" />
@@ -55,10 +55,11 @@ const ContactCard:FC<contactCardType> = (props) => {
                         <div className="tags-wrapper pt-10">
                             {workTagList.map((item,index:number) => (
                                 <span key={index} className='tag mt-5'>{item.tag}</span>
-                            ))} {isHugeTagList && <div className='s-text'>...</div>}
+                            ))} {isHugeTagList && <div className='s-text ml-5'>...</div>}
                         </div>
                     </div>
                 </div>
+                </Link>
                 <div className="del-contact-btn xl-text" onClick={onDelete}>
                     Delete this contact
                 </div>

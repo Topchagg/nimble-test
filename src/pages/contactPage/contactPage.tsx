@@ -1,45 +1,53 @@
 import { useEffect, useState } from 'react'
 import FormAddTag from '../../features/formAddTag/formAddTag'
-import { tag } from '../../shared/types/contactCardType'
 import useFetchData from '../../shared/customHooks/getCustomHooks'
 
 import './ui/contactPage.css'
 import usePutRequest from '../../shared/customHooks/putCustomHook'
+import { useParams } from 'react-router-dom'
+import LoadingItem from '../../shared/loadingItem/loadingitem'
+import getStringTags from '../../shared/functions/getStingTags'
 
 
 
 const ContactPage = () => {
 
-    const urlGetTags = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/66aa956d662ccba0abc4e345';
-    const urlPutTags = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/66aa956d662ccba0abc4e345/tags';
+    const {id} = useParams()
+
+    const urlGetTags = `https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/${id}`;
+    const urlPutTags = `https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contacts/${id}/tags`;
 
     const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
 
     const {data,isLoaded,error} = useFetchData(urlGetTags,token)
 
-    const [tags,setTags] = useState<tag[]>(data?.['resources']?.[0]?.['tags'])
+    const [tags,setTags] = useState<string[]>(getStringTags([]))
 
-    const {putRequest} = usePutRequest(urlPutTags,token)
+    const {loading,putError,putRequest} = usePutRequest(urlPutTags,token)
 
     const onSubmit = () => {
         if(data?.['resources']?.[0]?.['tags'].length !== tags.length){
-            const newData = data
-            newData['resources'][0]['tags'] = tags
-            putRequest(data)
+            putRequest({tags: tags})
         }
     }
 
 
     useEffect(() => {
-        setTags(data?.['resources']?.[0]?.['tags'])
+        setTags(getStringTags(data?.['resources']?.[0]?.['tags']))
     },[data])
 
-    if(isLoaded &&  tags !== undefined){
+    useEffect(() => {
+        if(putError !== null){
+            alert(putError)
+        }
+    },[putError])
+
+    if(isLoaded &&  tags !== null && data !== null){
         return (
             <div className='content-wrapper'>
                 <div className="contact-page-data-wrapper">
                     <div className="contact-page-image-wrapper">
-                        <img src="avatarimg.png" className='image' alt="" />
+                        <img src={data['resources'][0].avatar_url} className='image' alt="" />
                     </div>
                     <div className="contact-page-info-wrapper s-title">
                         <div className="contact-page-info-item ">Name: <span className="text-decoration">{data?.['resources']?.[0]['fields']?.['first name']?.[0]?.['value']}</span></div>
@@ -52,8 +60,8 @@ const ContactPage = () => {
                     <div className="tag-list-wrapper l-text">
                         Tags:
                         <div className="contact-page-tags-grid">
-                            {tags.map((item:tag,index:number) => (
-                                <div key={index} className='tag'>{item.tag}</div>
+                            {tags?.map((item:string,index:number) => (
+                                <div key={index} className='tag'>{item}</div>
                             ))}
                         </div>
                     </div>
@@ -64,6 +72,10 @@ const ContactPage = () => {
                     </div> 
                 </div>
             </div>
+        )
+    }else {
+        return (
+            <LoadingItem/>
         )
     }
 }
