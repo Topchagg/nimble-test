@@ -9,11 +9,7 @@ import './ui/createContactWidget.css'
 
 const CreateContactWidget = () => {
 
-    
-
     const [isHide, setIsHide] = useState(true)
-
-
 
     return (
         <>
@@ -25,7 +21,7 @@ const CreateContactWidget = () => {
             <AnimatePresence>
             {isHide || 
             
-                    <motion.div className="sticky"
+                    <motion.div className="sticky create-contact-widget"
                     initial={{y:-400}}
                     animate={{y:0}}
                     exit={{y:-400}}

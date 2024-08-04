@@ -1,9 +1,13 @@
+import { useEffect, useState } from "react";
+
 import { InputField, ReactiveForm, useCreateForm,fieldSettings, setGlobalObject, useActionOnSubmit, formIsValid, ImageField, SelectField } from "reactive-fast-form"
 import isAlpha from "validator/lib/isAlpha"
 import isEmail from "validator/lib/isEmail"
-import { useEffect, useState } from "react";
-import usePostRequest from "../../shared/customHooks/postCustomHook";
-import LoadingItem from "../../shared/loadingItem/loadingitem";
+
+import { usePostRequest } from "../../shared/sharedApi";
+
+import {LoadingItem} from "../../shared/sharedApi";
+
 import { deleteImg, downloadImgTo } from "../../lib/firebase/firbaseScripts";
 
 import './ui/formCreateContact.css'
@@ -20,8 +24,8 @@ const FormCreateContact = () => {
     const {loading,data,error,postRequest} = usePostRequest(url,token)
 
     const settings:fieldSettings = {
-        validClass:"valid default",
-        invalidClass:"invalid default",
+        validClass:"valid default-field",
+        invalidClass:"invalid default-field",
         resetAfterSubmit:true
     }
 
@@ -106,12 +110,12 @@ const FormCreateContact = () => {
 
             <label htmlFor="image">
                     <div className="create-contact-image-wrapper">
-                        {preview && <img src={preview} className="image" alt="" /> || <div>** Send image **</div> } 
+                        {preview && <img src={preview} className="image" alt="" /> || <div className="l-text">Image</div> } 
                     </div>
             </label>
         </div>
-        <button onClick={() => setGlobalObject(setForm)} className="btn s-text mt-5">**Create new contact**</button>
-            {data && <>Succesfully created!</>} {error && <>error</>}
+        <button onClick={() => setGlobalObject(setForm)} className="btn s-text mt-5 center">**Create new contact**</button>
+            {data && <>Succesfully created!</>} {error && <div className="center">error</div>}
         </>
     )
 }

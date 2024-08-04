@@ -19,7 +19,10 @@
     left: 50%;
     top: 1%;
     transform: translate(-50%, -50%);  
+}
 
+.create-contact-widget {
+    position: fixed;
 }
 
 .default-hide-btn:hover {
@@ -27,15 +30,22 @@
 }
 
 
-
 .create-contact-wrapper {
     width: 530px;
-    margin: 0 auto;
     padding: 30px;
-    border: solid black 3px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     background-color: black;
     color: aliceblue;
     opacity: 0.9;
+}
+
+@media (max-width:580px){
+    .default-hide-btn {
+        width: 250px;
+    }
+
+    .create-contact-wrapper {
+        width: 300px;
+    }
 }

@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
 
-
 import './ui/loadingItem.css'
-
 
 const LoadingItem = () => {
     return (

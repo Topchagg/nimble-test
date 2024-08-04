@@ -1,7 +1,5 @@
 import { tag } from "../types/contactCardType";
 
-
-
 const getStringTags = (tags?:tag[]) => {
     if(tags !== undefined){
         let listToReturn:string[] = []

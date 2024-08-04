@@ -22,3 +22,17 @@
 .create-contact-select-field {
     width: 100%;
 }
+
+@media (max-width:580px) {
+    .create-contact-image-wrapper {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .form-create-contact-wrapper{
+        display: block;
+    }
+}

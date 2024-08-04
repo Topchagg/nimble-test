@@ -1,16 +1,20 @@
 import { useEffect, useState,FC } from 'react'
 
 import { Link } from 'react-router-dom'
-import InfoCard from '../infoCard/infoCard'
-import contactCardType from '../types/contactCardType'
 
-import './ui/styles.css'
-import deleteContact from '../functions/deleteContact'
+import InfoCard from '../infoCard/infoCard'
+import contactCardType from '../../types/contactCardType'
 import LoadingItem from '../loadingItem/loadingitem'
+
+import deleteContact from '../../functions/deleteContact'
+
+import { token } from '../../sharedApi'
+
+import './ui//contactCard.css'
+
 
 const ContactCard:FC<contactCardType> = (props) => {
 
-    const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn'; 
 
     const [isHover, setIsHover] = useState<boolean>(false)
     const [isHugeTagList,setIsHugeTagList] = useState(false)
@@ -54,7 +58,7 @@ const ContactCard:FC<contactCardType> = (props) => {
                         <hr />
                         <div className="tags-wrapper pt-10">
                             {workTagList.map((item,index:number) => (
-                                <span key={index} className='tag mt-5'>{item.tag}</span>
+                                <span key={index} className='contact-card-tag'>{item.tag}</span>
                             ))} {isHugeTagList && <div className='s-text ml-5'>...</div>}
                         </div>
                     </div>

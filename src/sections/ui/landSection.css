@@ -1,5 +1,0 @@
-.contacts-grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    row-gap: 50px;
-}

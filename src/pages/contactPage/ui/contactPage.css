@@ -4,7 +4,7 @@
 }
 
 .contact-page-image-wrapper {
-    width: 400px;
+    width: 480px;
     box-shadow: 0px 0px 20px 2px black;
     border-radius: 40px;
     cursor: pointer;
@@ -16,6 +16,7 @@
     padding-left: 30px;
     border-radius: 40px;
     box-shadow: 0px 0px 20px 2px black;
+    margin-top: 40px;   
 }
 
 .contact-page-tag-actions-wrapper {
@@ -24,7 +25,7 @@
 }
 
 .tag-list-wrapper {
-    width: 400px;
+    width: 480px;
     border-radius: 30px;
     box-shadow: 0px 0px 20px 2px black;
     border: none;
@@ -40,4 +41,47 @@
 .contact-page-tags-grid {
     display: grid;
     grid-template-columns: auto auto auto;
+}
+
+
+@media (max-width:1300px) {
+    .contact-page-image-wrapper, .tag-list-wrapper {
+        width: 360px;
+    }
+}
+
+@media (max-width:1024px) {
+    .contact-page-image-wrapper{
+        width: 240px;
+        height: 240px;
+        margin-top: 50px;
+    }
+    .contact-page-tag-actions-wrapper {
+        display: block;
+    }
+    .tag-list-wrapper {
+        margin: 0 auto;
+        width: 420px;
+    }
+    .create-tag-form-wrapper {
+        margin: 0 auto;
+        margin-top: 25px;
+        width: 50%;
+    }
+}
+
+@media (max-width:650px) {
+    .contact-page-image-wrapper {
+        width: 190px;
+        height: 190px;
+        margin: 0 auto;
+    }
+
+    .contact-page-data-wrapper {
+        display: block;
+    }
+
+    .tag-list-wrapper {
+        width: 90%;
+    }
 }

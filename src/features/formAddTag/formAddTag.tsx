@@ -1,11 +1,6 @@
+import { Dispatch, FC, SetStateAction } from "react"
+
 import { useCreateForm,ReactiveForm, InputField, setGlobalObject, useActionOnSubmit, formIsValid } from "reactive-fast-form"
-
-import { v4 } from "uuid"
-
-import { tag } from "../../shared/types/contactCardType"
-import { Dispatch, FC, SetStateAction, useState } from "react"
-import getStringTags from "../../shared/functions/getStingTags"
-
 
 interface formAddTag {
     setFunc:Dispatch<SetStateAction<string[]>>,
@@ -13,10 +8,6 @@ interface formAddTag {
 }
 
 const FormAddTag:FC<formAddTag> = (props) => {
-
-    const url = 'https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/66aa7dce662ccba0abc4e2b2/tags';
-    const token = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
-
 
     const [form,setForm,trigger] = useCreateForm(['tag'])
 
@@ -38,8 +29,8 @@ const FormAddTag:FC<formAddTag> = (props) => {
                     min={3}
                     max={15} 
                     isTrigger 
-                    invalidClass="invalid default p-10" 
-                    validClass="valid default p-10" 
+                    invalidClass="invalid default-field p-10" 
+                    validClass="valid default-field p-10" 
                     placeholder="Tag"
                     resetAfterSubmit
                     />
