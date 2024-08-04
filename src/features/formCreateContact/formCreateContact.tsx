@@ -30,9 +30,19 @@ const FormCreateContact = () => {
     }
 
     useActionOnSubmit(async () => {
-        if(formIsValid(form, {'firstName':'lastname'})){
+        if(formIsValid(form, {'firstName':'lastName'})){
             const img = await downloadImgTo(form['image'].value,'/image')
             setImageUrl(img)
+
+            let name = form['firstName'].value
+            let lastName = form['lastName'].value
+
+            if(name.length === 0){
+                name = null
+            }else if(lastName.length === 0){ // Нужно доработать библиотеку :) Чтоб избавиться от таких проверок 
+                lastName = null
+            }
+
             const data = {
                     avatar_url:img,
                     record_type: form['type'].value,
@@ -47,11 +57,11 @@ const FormCreateContact = () => {
                             "modifier":''
                         }],
                         "last name": [{
-                            "value":form['lastName'].value,
+                            "value":lastName,
                             "modifier":''
                         }],
                         "first name": [{
-                            "value":form['firstName'].value,
+                            "value":name,
                             "modifier":''
                         }],
                     }
@@ -87,11 +97,11 @@ const FormCreateContact = () => {
                 {loading && <LoadingItem/>}
                 <div>
                     {!form['firstName'].isValid && <>Valid only alphabets!</>}
-                    <InputField name="firstName" max={20} validFunc={isAlpha} {...settings} placeholder="Name"/>
+                    <InputField name="firstName" max={20} allowNull validFunc={isAlpha} {...settings} placeholder="Name"/>
                 </div>
                 <div>
                     {!form['lastName'].isValid && <>Valid only alphabets!</>}
-                    <InputField name="lastName" max={20} validFunc={isAlpha} {...settings} placeholder="Surname"/>
+                    <InputField name="lastName" max={20} allowNull validFunc={isAlpha} {...settings} placeholder="Surname"/>
                 </div>
                 <div>
                     {!form['email'].isValid && <div>Invalid email</div>}
@@ -114,8 +124,8 @@ const FormCreateContact = () => {
                     </div>
             </label>
         </div>
-        <button onClick={() => setGlobalObject(setForm)} className="btn s-text mt-5 center">**Create new contact**</button>
-            {data && <>Succesfully created!</>} {error && <div className="center">error</div>}
+        <button onClick={() => setGlobalObject(setForm)} className="btn l-text mt-5 center">**Create new contact**</button>
+            {data && <div className="center mt-5">Succesfully created!</div>} {error && <div className="center">error</div>}
         </>
     )
 }
