@@ -8,7 +8,7 @@ import { usePostRequest } from "../../shared/sharedApi";
 
 import {LoadingItem} from "../../shared/sharedApi";
 
-import { deleteImg, downloadImgTo } from "../../lib/firebase/firbaseScripts";
+import {downloadImgTo } from "../../lib/firebase/firbaseScripts";
 
 import './ui/formCreateContact.css'
 
@@ -74,7 +74,7 @@ const FormCreateContact = () => {
         }
         if(error !== null){
             if(typeof imageUrl  === 'string'){
-                deleteImg(imageUrl)
+                // delete img if was error in sending to the server
             }
             alert(error)
         }
