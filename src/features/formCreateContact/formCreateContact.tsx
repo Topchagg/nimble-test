@@ -87,18 +87,18 @@ const FormCreateContact = () => {
                 {loading && <LoadingItem/>}
                 <div>
                     {!form['firstName'].isValid && <>Valid only alphabets!</>}
-                    <InputField name="firstName" allowNull max={20} validFunc={isAlpha} {...settings} placeholder="Name"/>
+                    <InputField name="firstName" max={20} validFunc={isAlpha} {...settings} placeholder="Name"/>
                 </div>
                 <div>
                     {!form['lastName'].isValid && <>Valid only alphabets!</>}
-                    <InputField name="lastName" allowNull max={20} validFunc={isAlpha} {...settings} placeholder="Surname"/>
+                    <InputField name="lastName" max={20} validFunc={isAlpha} {...settings} placeholder="Surname"/>
                 </div>
                 <div>
                     {!form['email'].isValid && <div>Invalid email</div>}
                     <InputField name="email" validFunc={isEmail} isTrigger {...settings} placeholder="Email" type="email"/>
                 </div>
                 <div>
-                    <ImageField name="image" maxBytes={10000000} id="image" updateOnChange/>
+                    <ImageField name="image" maxBytes={10000000} id="image" updateOnChange allowNull/>
                 </div>
                 <div>
                     <SelectField name="type" classNameSelectField="create-contact-select-field mt-5" defaultValue="person">
