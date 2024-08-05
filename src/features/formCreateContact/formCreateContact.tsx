@@ -37,7 +37,6 @@ const FormCreateContact:FC<{setFunc?:Dispatch<SetStateAction<any>>,data?:any}> =
                 setImageUrl(img) 
             } 
             
-
             let name = form['firstName'].value
             let lastName = form['lastName'].value
 
